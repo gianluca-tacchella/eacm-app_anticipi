@@ -1,0 +1,85 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+  typeName: 'Anticipo',
+  typeNamePlural: 'Anticipi',
+  title: { type: #STANDARD, value: 'Vbeln' },
+  description: { value: 'Zamcos' }
+}
+annotate view /EACM/C_MFXN_ADV with
+{
+  @UI.facet: [
+    { id: 'Advance', purpose: #STANDARD, type: #COLLECTION, label: 'Anticipo', position: 10 },
+    { id: 'Keys', parentId: 'Advance', purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, targetQualifier: 'Keys', label: 'Identificativi', position: 10 },
+    { id: 'Amounts', parentId: 'Advance', purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, targetQualifier: 'Amounts', label: 'Importi', position: 20 }
+  ]
+
+  @UI.hidden: true
+  Uuid;
+
+  @UI.hidden: true
+  @UI.lineItem: [
+    { position: 5, type: #FOR_ACTION, dataAction: 'Attribute', label: 'Attribuisci' },
+    { position: 6, type: #FOR_ACTION, dataAction: 'Deattribute', label: 'Deattribuisci' }
+  ]
+  LineUuid;
+
+  @EndUserText.label: 'Org. vendite'
+  @UI.lineItem: [{ position: 10, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'Keys', position: 10 }]
+  Vkorg;
+
+  @EndUserText.label: 'Canale'
+  @UI.lineItem: [{ position: 20, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'Keys', position: 20 }]
+  Vtweg;
+
+  @EndUserText.label: 'Classe'
+  @UI.lineItem: [{ position: 30, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'Keys', position: 30 }]
+  Zclpr;
+
+  @EndUserText.label: 'Documento'
+  @UI.lineItem: [{ position: 40, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'Keys', position: 40 }]
+  Vbeln;
+
+  @EndUserText.label: 'Posizione'
+  @UI.lineItem: [{ position: 50, importance: #MEDIUM }]
+  @UI.fieldGroup: [{ qualifier: 'Keys', position: 50 }]
+  Posnr;
+
+  @EndUserText.label: 'Competenza'
+  @UI.lineItem: [{ position: 60, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'Keys', position: 60 }]
+  Zamcos;
+
+  @EndUserText.label: 'Valuta'
+  @UI.lineItem: [{ position: 70, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'Amounts', position: 10 }]
+  DisplayWaerk;
+
+  @EndUserText.label: 'Importo anticipato'
+  @UI.lineItem: [{ position: 80, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'Amounts', position: 20 }]
+  Ziman;
+
+  @EndUserText.label: 'Gia recuperato'
+  @UI.lineItem: [{ position: 90, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'Amounts', position: 30 }]
+  Zirec;
+
+  @EndUserText.label: 'Importo da recuperare'
+  @UI.lineItem: [{ position: 100, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'Amounts', position: 40 }]
+  Rec;
+
+  @EndUserText.label: 'Max recuperabile'
+  @UI.lineItem: [{ position: 110, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'Amounts', position: 50 }]
+  MaxRec;
+
+  @EndUserText.label: 'Codice IVA'
+  @UI.lineItem: [{ position: 120, importance: #MEDIUM }]
+  @UI.fieldGroup: [{ qualifier: 'Amounts', position: 60 }]
+  Mwskz;
+}

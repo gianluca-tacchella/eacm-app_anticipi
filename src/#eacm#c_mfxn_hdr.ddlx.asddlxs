@@ -1,0 +1,135 @@
+//@Metadata.layer: #CORE
+//@UI.headerInfo: {
+//  typeName: 'Recupero anticipo',
+//  typeNamePlural: 'Recuperi anticipi',
+//  title: { type: #STANDARD, value: 'Zcdaz' },
+//  description: { value: 'AgentName' }
+//}
+//annotate view /EACM/C_MFXN_HDR with
+//{
+//  @UI.facet: [
+//    { id: 'Selection', purpose: #STANDARD, type: #COLLECTION, label: 'Selezione', position: 10 },
+//    { id: 'SelectionData', parentId: 'Selection', purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, targetQualifier: 'SelectionData', label: 'Parametri', position: 10 },
+//    { id: 'HeaderData', parentId: 'Selection', purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, targetQualifier: 'HeaderData', label: 'Header', position: 20 },
+//    { id: 'VkorgRanges', purpose: #STANDARD, type: #LINEITEM_REFERENCE, label: 'Organizzazioni vendita', position: 20, targetElement: '_VkorgRanges' },
+//    { id: 'VtwegRanges', purpose: #STANDARD, type: #LINEITEM_REFERENCE, label: 'Canali distribuzione', position: 30, targetElement: '_VtwegRanges' },
+//    { id: 'Summaries', purpose: #STANDARD, type: #LINEITEM_REFERENCE, label: 'Riepilogo recuperi', position: 40, targetElement: '_Summaries' },
+//    { id: 'Advances', purpose: #STANDARD, type: #LINEITEM_REFERENCE, label: 'Anticipi recuperabili', position: 50, targetElement: '_Advances' }
+//  ]
+//
+//  @UI.hidden: true
+//  @UI.identification: [
+//    { position: 10, type: #FOR_ACTION, dataAction: 'Extract', label: 'Estrai' },
+//    { position: 20, type: #FOR_ACTION, dataAction: 'SaveToSap', label: 'Salva' }
+//  ]
+//  @UI.lineItem: [
+//    { position: 1, type: #FOR_ACTION, dataAction: 'StartExtraction', label: 'Avvia estrazione' }
+//  ]
+//  Uuid;
+//
+//  @EndUserText.label: 'Societa'
+//  @Consumption.valueHelpDefinition: [{ entity: { name: '/EACM/C_T001', element: 'Bukrs' }, useForValidation: true }]
+//  @UI.lineItem: [{ position: 10, importance: #HIGH }]
+//  @UI.fieldGroup: [{ qualifier: 'SelectionData', position: 10 }]
+//  Bukrs;
+//
+//  @EndUserText.label: 'Competenza fino a'
+//  @UI.lineItem: [{ position: 20, importance: #HIGH }]
+//  @UI.fieldGroup: [{ qualifier: 'SelectionData', position: 20 }]
+//  Zamcf;
+//
+//  @EndUserText.label: 'Agente'
+//  @Consumption.valueHelpDefinition: [{ entity: { name: '/EACM/ZAGE', element: 'Zcdaz' }, useForValidation: true }]
+//  @UI.lineItem: [{ position: 30, importance: #HIGH }]
+//  @UI.fieldGroup: [{ qualifier: 'SelectionData', position: 30 }]
+//  Zcdaz;
+//
+//  @EndUserText.label: 'Nome agente'
+//  @UI.lineItem: [{ position: 40, importance: #HIGH }]
+//  @UI.fieldGroup: [{ qualifier: 'HeaderData', position: 10 }]
+//  AgentName;
+//
+//  @EndUserText.label: 'Valuta interna'
+//  @UI.fieldGroup: [{ qualifier: 'HeaderData', position: 20 }]
+//  LocalCurrency;
+//
+//  @EndUserText.label: 'Conversione in valuta interna'
+//  @UI.fieldGroup: [{ qualifier: 'HeaderData', position: 30 }]
+//  EuroMode;
+//
+//  @EndUserText.label: 'Stato'
+//  @UI.fieldGroup: [{ qualifier: 'HeaderData', position: 40 }]
+//  Status;
+//
+//  @EndUserText.label: 'Messaggio'
+//  @UI.fieldGroup: [{ qualifier: 'HeaderData', position: 50 }]
+//  MessageText;
+//}
+
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+  typeName: 'Recupero anticipo',
+  typeNamePlural: 'Recuperi anticipi',
+  title: { type: #STANDARD, value: 'Zcdaz' },
+  description: { value: 'AgentName' }
+}
+annotate view /EACM/C_MFXN_HDR with
+{
+  @UI.facet: [
+    { id: 'Selection', purpose: #STANDARD, type: #COLLECTION, label: 'Selezione', position: 10 },
+    { id: 'SelectionData', parentId: 'Selection', purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, targetQualifier: 'SelectionData', label: 'Parametri', position: 10 },
+    { id: 'HeaderData', parentId: 'Selection', purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, targetQualifier: 'HeaderData', label: 'Header', position: 20 },
+    { id: 'VkorgRanges', purpose: #STANDARD, type: #LINEITEM_REFERENCE, label: 'Organizzazioni vendita', position: 20, targetElement: '_VkorgRanges' },
+    { id: 'VtwegRanges', purpose: #STANDARD, type: #LINEITEM_REFERENCE, label: 'Canali distribuzione', position: 30, targetElement: '_VtwegRanges' },
+    { id: 'Summaries', purpose: #STANDARD, type: #LINEITEM_REFERENCE, label: 'Riepilogo recuperi', position: 40, targetElement: '_Summaries' },
+    { id: 'Advances', purpose: #STANDARD, type: #LINEITEM_REFERENCE, label: 'Anticipi recuperabili', position: 50, targetElement: '_Advances' }
+  ]
+
+  @UI.hidden: true
+  @UI.identification: [
+    { position: 10, type: #FOR_ACTION, dataAction: 'Extract', label: 'Estrai' },
+    { position: 20, type: #FOR_ACTION, dataAction: 'SaveToSap', label: 'Salva' }
+  ]
+  @UI.lineItem: [
+    { position: 1, type: #FOR_ACTION, dataAction: 'StartExtraction', label: 'Avvia estrazione' }
+  ]
+  Uuid;
+
+  @EndUserText.label: 'Societa'
+  @Consumption.valueHelpDefinition: [{ entity: { name: '/EACM/C_T001', element: 'Bukrs' }, useForValidation: true }]
+  @UI.lineItem: [{ position: 10, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'SelectionData', position: 10 }]
+  Bukrs;
+
+  @EndUserText.label: 'Competenza fino a'
+  @UI.lineItem: [{ position: 20, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'SelectionData', position: 20 }]
+  Zamcf;
+
+  @EndUserText.label: 'Agente'
+  @Consumption.valueHelpDefinition: [{ entity: { name: '/EACM/ZAGE', element: 'Zcdaz' }, useForValidation: true }]
+  @UI.lineItem: [{ position: 30, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'SelectionData', position: 30 }]
+  Zcdaz;
+
+  @EndUserText.label: 'Nome agente'
+  @UI.lineItem: [{ position: 40, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'HeaderData', position: 10 }]
+  AgentName;
+
+  @EndUserText.label: 'Valuta interna'
+  @UI.fieldGroup: [{ qualifier: 'HeaderData', position: 20 }]
+  LocalCurrency;
+
+  @EndUserText.label: 'Conversione in valuta interna'
+  @UI.fieldGroup: [{ qualifier: 'HeaderData', position: 30 }]
+  EuroMode;
+
+  @EndUserText.label: 'Stato'
+  @UI.fieldGroup: [{ qualifier: 'HeaderData', position: 40 }]
+  Status;
+
+  @EndUserText.label: 'Messaggio'
+  @UI.fieldGroup: [{ qualifier: 'HeaderData', position: 50 }]
+  MessageText;
+}

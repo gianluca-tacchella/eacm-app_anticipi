@@ -1,0 +1,11 @@
+unmanaged implementation in class /EACM/BP_I_MFXN_ZPRDP unique;
+strict ( 2 );
+
+define behavior for /EACM/I_MFXN_ZPRDP alias RecoveryLine
+lock master
+authorization master ( instance )
+{
+  action Recover parameter /EACM/A_MFXN_ZPRDP result [1] $self;
+  action Attribute parameter /EACM/A_MFXN_ZPRDP result [1] $self;
+  action SaveToSap parameter /EACM/A_MFXN_ZPRDP result [1] $self;
+}

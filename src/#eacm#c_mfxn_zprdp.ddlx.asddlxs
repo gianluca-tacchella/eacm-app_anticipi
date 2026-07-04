@@ -1,0 +1,197 @@
+//@Metadata.layer: #CORE
+//@UI.headerInfo: {
+//  typeName: 'Riga ZPRDP',
+//  typeNamePlural: 'Righe ZPRDP',
+//  title: { type: #STANDARD, value: 'Vbeln' },
+//  description: { value: 'Zclpr' }
+//}
+//annotate view /EACM/C_MFXN_ZPRDP with
+//{
+//  @UI.facet: [
+//    { id: 'Main', purpose: #STANDARD, type: #COLLECTION, label: 'Dettaglio ZPRDP', position: 10 },
+//    { id: 'Keys', parentId: 'Main', purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, targetQualifier: 'Keys', label: 'Chiavi', position: 10 },
+//    { id: 'Amounts', parentId: 'Main', purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, targetQualifier: 'Amounts', label: 'Importi', position: 20 }
+//  ]
+//
+//  @EndUserText.label: 'Org. vendite'
+//  @Consumption.valueHelpDefinition: [{ entity: { name: '/EACM/C_TVKO', element: 'Vkorg' }, useForValidation: true }]
+//  @UI.selectionField: [{ position: 10 }]
+//  @UI.lineItem: [{ position: 10, importance: #HIGH }]
+//  @UI.fieldGroup: [{ qualifier: 'Keys', position: 10 }]
+//  Vkorg;
+//
+//  @EndUserText.label: 'Canale'
+//  @Consumption.valueHelpDefinition: [{ entity: { name: '/EACM/C_TVTW', element: 'Vtweg' }, useForValidation: true }]
+//  @UI.selectionField: [{ position: 20 }]
+//  @UI.lineItem: [{ position: 20, importance: #HIGH }]
+//  @UI.fieldGroup: [{ qualifier: 'Keys', position: 20 }]
+//  Vtweg;
+//
+//  @EndUserText.label: 'Classe provvigionale'
+//  @Consumption.valueHelpDefinition: [{ entity: { name: '/EACM/H_ZCLPR', element: 'Zclpr' }, useForValidation: true }]
+//  @UI.selectionField: [{ position: 30 }]
+//  @UI.lineItem: [{ position: 30, importance: #HIGH }]
+//  @UI.fieldGroup: [{ qualifier: 'Keys', position: 30 }]
+//  Zclpr;
+//
+//  @EndUserText.label: 'Documento'
+//  @Search.defaultSearchElement: true
+//  @UI.selectionField: [{ position: 40 }]
+//  @UI.lineItem: [
+//    { position: 1, type: #FOR_ACTION, dataAction: 'Recover', label: 'Recupera' },
+//    { position: 2, type: #FOR_ACTION, dataAction: 'Attribute', label: 'Attribuisci' },
+//    { position: 3, type: #FOR_ACTION, dataAction: 'SaveToSap', label: 'Salva' },
+//    { position: 40, importance: #HIGH }
+//  ]
+//  @UI.fieldGroup: [{ qualifier: 'Keys', position: 40 }]
+//  Vbeln;
+//
+//  @EndUserText.label: 'Posizione'
+//  @UI.lineItem: [{ position: 50, importance: #MEDIUM }]
+//  @UI.fieldGroup: [{ qualifier: 'Keys', position: 50 }]
+//  Posnr;
+//
+//  @EndUserText.label: 'Agente'
+//  @Consumption.valueHelpDefinition: [{ entity: { name: '/EACM/ZAGE', element: 'Zcdaz' }, useForValidation: true }]
+//  @UI.selectionField: [{ position: 50 }]
+//  @UI.lineItem: [{ position: 60, importance: #HIGH }]
+//  @UI.fieldGroup: [{ qualifier: 'Keys', position: 60 }]
+//  Zcdaz;
+//
+//  @EndUserText.label: 'Societa'
+//  @Consumption.valueHelpDefinition: [{ entity: { name: '/EACM/C_T001', element: 'Bukrs' }, useForValidation: true }]
+//  @UI.selectionField: [{ position: 60 }]
+//  @UI.lineItem: [{ position: 70, importance: #MEDIUM }]
+//  @UI.fieldGroup: [{ qualifier: 'Keys', position: 70 }]
+//  Bukrs;
+//
+//  @EndUserText.label: 'Competenza'
+//  @UI.selectionField: [{ position: 70 }]
+//  @UI.lineItem: [{ position: 80, importance: #HIGH }]
+//  @UI.fieldGroup: [{ qualifier: 'Keys', position: 80 }]
+//  Zamco;
+//
+//  @EndUserText.label: 'Valuta'
+//  @UI.lineItem: [{ position: 90, importance: #HIGH }]
+//  @UI.fieldGroup: [{ qualifier: 'Amounts', position: 10 }]
+//  Waerk;
+//
+//  @EndUserText.label: 'Importo anticipato'
+//  @UI.lineItem: [{ position: 100, importance: #HIGH }]
+//  @UI.fieldGroup: [{ qualifier: 'Amounts', position: 20 }]
+//  Ziman;
+//
+//  @EndUserText.label: 'Importo recuperato'
+//  @UI.lineItem: [{ position: 110, importance: #HIGH }]
+//  @UI.fieldGroup: [{ qualifier: 'Amounts', position: 30 }]
+//  Zirec;
+//
+//  @EndUserText.label: 'Importo provvigione'
+//  @UI.lineItem: [{ position: 120, importance: #MEDIUM }]
+//  @UI.fieldGroup: [{ qualifier: 'Amounts', position: 40 }]
+//  Ziprv;
+//
+//  @EndUserText.label: 'Aperto'
+//  @UI.lineItem: [{ position: 130, importance: #MEDIUM }]
+//  @UI.fieldGroup: [{ qualifier: 'Amounts', position: 50 }]
+//  HasOpenAmount;
+//}
+
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+  typeName: 'Riga ZPRDP',
+  typeNamePlural: 'Righe ZPRDP',
+  title: { type: #STANDARD, value: 'Vbeln' },
+  description: { value: 'Zclpr' }
+}
+annotate view /EACM/C_MFXN_ZPRDP with
+{
+  @UI.facet: [
+    { id: 'Main', purpose: #STANDARD, type: #COLLECTION, label: 'Dettaglio ZPRDP', position: 10 },
+    { id: 'Keys', parentId: 'Main', purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, targetQualifier: 'Keys', label: 'Chiavi', position: 10 },
+    { id: 'Amounts', parentId: 'Main', purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, targetQualifier: 'Amounts', label: 'Importi', position: 20 }
+  ]
+
+  @EndUserText.label: 'Org. vendite'
+  @Consumption.valueHelpDefinition: [{ entity: { name: '/EACM/C_TVKO', element: 'Vkorg' }, useForValidation: true }]
+  @UI.selectionField: [{ position: 10 }]
+  @UI.lineItem: [{ position: 10, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'Keys', position: 10 }]
+  Vkorg;
+
+  @EndUserText.label: 'Canale'
+  @Consumption.valueHelpDefinition: [{ entity: { name: '/EACM/C_TVTW', element: 'Vtweg' }, useForValidation: true }]
+  @UI.selectionField: [{ position: 20 }]
+  @UI.lineItem: [{ position: 20, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'Keys', position: 20 }]
+  Vtweg;
+
+  @EndUserText.label: 'Classe provvigionale'
+  @Consumption.valueHelpDefinition: [{ entity: { name: '/EACM/H_ZCLPR', element: 'Zclpr' }, useForValidation: true }]
+  @UI.selectionField: [{ position: 30 }]
+  @UI.lineItem: [{ position: 30, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'Keys', position: 30 }]
+  Zclpr;
+
+  @EndUserText.label: 'Documento'
+  @Search.defaultSearchElement: true
+  @UI.selectionField: [{ position: 40 }]
+  @UI.lineItem: [
+    { position: 1, type: #FOR_ACTION, dataAction: 'Recover', label: 'Recupera' },
+    { position: 2, type: #FOR_ACTION, dataAction: 'Attribute', label: 'Attribuisci' },
+    { position: 3, type: #FOR_ACTION, dataAction: 'SaveToSap', label: 'Salva' },
+    { position: 40, importance: #HIGH }
+  ]
+  @UI.fieldGroup: [{ qualifier: 'Keys', position: 40 }]
+  Vbeln;
+
+  @EndUserText.label: 'Posizione'
+  @UI.lineItem: [{ position: 50, importance: #MEDIUM }]
+  @UI.fieldGroup: [{ qualifier: 'Keys', position: 50 }]
+  Posnr;
+
+  @EndUserText.label: 'Agente'
+  @Consumption.valueHelpDefinition: [{ entity: { name: '/EACM/ZAGE', element: 'Zcdaz' }, useForValidation: true }]
+  @UI.selectionField: [{ position: 50 }]
+  @UI.lineItem: [{ position: 60, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'Keys', position: 60 }]
+  Zcdaz;
+
+  @EndUserText.label: 'Societa'
+  @Consumption.valueHelpDefinition: [{ entity: { name: '/EACM/C_T001', element: 'Bukrs' }, useForValidation: true }]
+  @UI.selectionField: [{ position: 60 }]
+  @UI.lineItem: [{ position: 70, importance: #MEDIUM }]
+  @UI.fieldGroup: [{ qualifier: 'Keys', position: 70 }]
+  Bukrs;
+
+  @EndUserText.label: 'Competenza documento originale'
+  @UI.selectionField: [{ position: 70 }]
+  @UI.lineItem: [{ position: 80, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'Keys', position: 80 }]
+  Zamco;
+
+  @EndUserText.label: 'Valuta'
+  @UI.lineItem: [{ position: 90, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'Amounts', position: 10 }]
+  Waerk;
+
+  @EndUserText.label: 'Importo anticipato'
+  @UI.lineItem: [{ position: 100, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'Amounts', position: 20 }]
+  Ziman;
+
+  @EndUserText.label: 'Importo recuperato'
+  @UI.lineItem: [{ position: 110, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'Amounts', position: 30 }]
+  Zirec;
+
+  @EndUserText.label: 'Importo provvigione'
+  @UI.lineItem: [{ position: 120, importance: #MEDIUM }]
+  @UI.fieldGroup: [{ qualifier: 'Amounts', position: 40 }]
+  Ziprv;
+
+  @EndUserText.label: 'Aperto'
+  @UI.lineItem: [{ position: 130, importance: #MEDIUM }]
+  @UI.fieldGroup: [{ qualifier: 'Amounts', position: 50 }]
+  HasOpenAmount;
+}

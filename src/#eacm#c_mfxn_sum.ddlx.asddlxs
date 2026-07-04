@@ -1,0 +1,47 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+  typeName: 'Riepilogo',
+  typeNamePlural: 'Riepiloghi',
+  title: { type: #STANDARD, value: 'Zclpr' },
+  description: { value: 'Waerk' }
+}
+annotate view /EACM/C_MFXN_SUM with
+{
+  @UI.hidden: true
+  Uuid;
+
+  @UI.hidden: true
+  LineUuid;
+
+  @EndUserText.label: 'Org. vendite'
+  @UI.lineItem: [{ position: 10, importance: #HIGH }]
+  Vkorg;
+
+  @EndUserText.label: 'Canale'
+  @UI.lineItem: [{ position: 20, importance: #HIGH }]
+  Vtweg;
+
+  @EndUserText.label: 'Classe recupero'
+  @UI.lineItem: [{ position: 30, importance: #HIGH }]
+  zclpr;
+
+  @EndUserText.label: 'Valuta'
+  @UI.lineItem: [{ position: 40, importance: #HIGH }]
+  Waerk;
+
+  @EndUserText.label: 'Codice IVA'
+  @UI.lineItem: [{ position: 50, importance: #MEDIUM }]
+  Mwskz;
+
+  @EndUserText.label: 'Provvigione'
+  @UI.lineItem: [{ position: 60, importance: #HIGH }]
+  Ziprv;
+
+  @EndUserText.label: 'Recuperato'
+  @UI.lineItem: [{ position: 70, importance: #HIGH }]
+  Zirec;
+
+  @EndUserText.label: 'Disponibile'
+  @UI.lineItem: [{ position: 80, importance: #HIGH }]
+  AvailableRec;
+}

@@ -1,0 +1,30 @@
+@Metadata.layer: #CORE
+annotate view /EACM/C_MFXN_VTWEG with
+{
+  @UI.hidden: true
+  Uuid;
+
+  @UI.hidden: true
+  RangeUuid;
+
+  @EndUserText.label: 'Ordine'
+  @UI.lineItem: [{ position: 10, importance: #LOW }]
+  SortOrder;
+
+  @EndUserText.label: 'Segno'
+  @UI.lineItem: [{ position: 20, importance: #MEDIUM }]
+  SelSign;
+
+  @EndUserText.label: 'Opzione'
+  @UI.lineItem: [{ position: 30, importance: #MEDIUM }]
+  SelOption;
+
+  @EndUserText.label: 'Da'
+  @Consumption.valueHelpDefinition: [{ entity: { name: '/EACM/C_TVTW', element: 'Vtweg' }, useForValidation: true }]
+  @UI.lineItem: [{ position: 40, importance: #HIGH }]
+  Low;
+
+  @EndUserText.label: 'A'
+  @UI.lineItem: [{ position: 50, importance: #MEDIUM }]
+  High;
+}

@@ -1,0 +1,143 @@
+//@Metadata.layer: #CORE
+//@UI.headerInfo: {
+//  typeName: 'Recupero anticipo',
+//  typeNamePlural: 'Recuperi anticipi',
+//  title: { type: #STANDARD, value: 'Zcdaz' },
+//  description: { value: 'Bukrs' }
+//}
+//annotate view /eacm/c_mfxn_recovery with
+//{
+//  @UI.facet: [
+//    { id: 'Header', purpose: #STANDARD, type: #COLLECTION, label: 'Header', position: 10 },
+//    { id: 'HeaderData', parentId: 'Header', purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, targetQualifier: 'HeaderData', label: 'Dati recupero', position: 10 },
+//    { id: 'Totals', parentId: 'Header', purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, targetQualifier: 'Totals', label: 'Totali', position: 20 },
+//    { id: 'Summaries', purpose: #STANDARD, type: #LINEITEM_REFERENCE, label: 'Riepilogo recuperi', position: 30, targetElement: '_Summaries' },
+//    { id: 'Advances', purpose: #STANDARD, type: #LINEITEM_REFERENCE, label: 'Anticipi recuperabili', position: 40, targetElement: '_Advances' }
+//  ]
+//
+//  @EndUserText.label: 'Societa'
+//  @Consumption.valueHelpDefinition: [{ entity: { name: '/EACM/C_T001', element: 'Bukrs' }, useForValidation: true }]
+//  @UI.selectionField: [{ position: 10 }]
+//  @UI.lineItem: [{ position: 10, importance: #HIGH }]
+//  @UI.fieldGroup: [{ qualifier: 'HeaderData', position: 10 }]
+//  bukrs;
+//
+//  @EndUserText.label: 'Agente'
+//  @Consumption.valueHelpDefinition: [{ entity: { name: '/EACM/ZAGE', element: 'Zcdaz' }, useForValidation: true }]
+//  @UI.selectionField: [{ position: 20 }]
+//  @UI.lineItem: [{ position: 20, importance: #HIGH }]
+//  @UI.fieldGroup: [{ qualifier: 'HeaderData', position: 20 }]
+//  zcdaz;
+//
+//  @EndUserText.label: 'Competenza'
+//  @UI.selectionField: [{ position: 30 }]
+//  @UI.lineItem: [{ position: 30, importance: #HIGH }]
+//  @UI.fieldGroup: [{ qualifier: 'HeaderData', position: 30 }]
+//  zamco;
+//
+//  @EndUserText.label: 'Valuta'
+//  @UI.lineItem: [{ position: 40, importance: #HIGH }]
+//  @UI.fieldGroup: [{ qualifier: 'HeaderData', position: 40 }]
+//  waerk;
+//
+//  @EndUserText.label: 'Righe'
+//  @UI.lineItem: [{ position: 50, importance: #MEDIUM }]
+//  @UI.fieldGroup: [{ qualifier: 'Totals', position: 10 }]
+//  advancecount;
+//
+//  @EndUserText.label: 'Prima fattura'
+//  @UI.fieldGroup: [{ qualifier: 'HeaderData', position: 50 }]
+//  firstbillingdate;
+//
+//  @EndUserText.label: 'Ultima fattura'
+//  @UI.lineItem: [{ position: 60, importance: #MEDIUM }]
+//  @UI.fieldGroup: [{ qualifier: 'HeaderData', position: 60 }]
+//  lastbillingdate;
+//
+//  @EndUserText.label: 'Totale anticipato'
+//  @UI.lineItem: [{ position: 70, importance: #HIGH }]
+//  @UI.fieldGroup: [{ qualifier: 'Totals', position: 20 }]
+//  totaladvance;
+//
+//  @EndUserText.label: 'Totale recuperato'
+//  @UI.lineItem: [{ position: 80, importance: #HIGH }]
+//  @UI.fieldGroup: [{ qualifier: 'Totals', position: 30 }]
+//  totalrecovered;
+//
+//  @EndUserText.label: 'Totale provvigione'
+//  @UI.lineItem: [{ position: 90, importance: #MEDIUM }]
+//  @UI.fieldGroup: [{ qualifier: 'Totals', position: 40 }]
+//  totalcommission;
+//}
+
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+  typeName: 'Recupero anticipo',
+  typeNamePlural: 'Recuperi anticipi',
+  title: { type: #STANDARD, value: 'Zcdaz' },
+  description: { value: 'Bukrs' }
+}
+annotate view /EACM/C_MFXN_RECOVERY with
+{
+  @UI.facet: [
+    { id: 'Header', purpose: #STANDARD, type: #COLLECTION, label: 'Header', position: 10 },
+    { id: 'HeaderData', parentId: 'Header', purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, targetQualifier: 'HeaderData', label: 'Dati recupero', position: 10 },
+    { id: 'Totals', parentId: 'Header', purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, targetQualifier: 'Totals', label: 'Totali', position: 20 },
+    { id: 'Summaries', purpose: #STANDARD, type: #LINEITEM_REFERENCE, label: 'Riepilogo recuperi', position: 30, targetElement: '_Summaries' },
+    { id: 'Advances', purpose: #STANDARD, type: #LINEITEM_REFERENCE, label: 'Anticipi recuperabili', position: 40, targetElement: '_Advances' }
+  ]
+
+  @EndUserText.label: 'Societa'
+  @Consumption.valueHelpDefinition: [{ entity: { name: '/EACM/C_T001', element: 'Bukrs' }, useForValidation: true }]
+  @UI.selectionField: [{ position: 10 }]
+  @UI.lineItem: [{ position: 10, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'HeaderData', position: 10 }]
+  Bukrs;
+
+  @EndUserText.label: 'Agente'
+  @Consumption.valueHelpDefinition: [{ entity: { name: '/EACM/ZAGE', element: 'Zcdaz' }, useForValidation: true }]
+  @UI.selectionField: [{ position: 20 }]
+  @UI.lineItem: [{ position: 20, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'HeaderData', position: 20 }]
+  Zcdaz;
+
+  @EndUserText.label: 'Competenza documento'
+  @UI.selectionField: [{ position: 30 }]
+  @UI.lineItem: [{ position: 30, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'HeaderData', position: 30 }]
+  Zamco;
+
+  @EndUserText.label: 'Valuta'
+  @UI.lineItem: [{ position: 40, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'HeaderData', position: 40 }]
+  Waerk;
+
+  @EndUserText.label: 'Righe'
+  @UI.lineItem: [{ position: 50, importance: #MEDIUM }]
+  @UI.fieldGroup: [{ qualifier: 'Totals', position: 10 }]
+  AdvanceCount;
+
+  @EndUserText.label: 'Prima fattura'
+  @UI.fieldGroup: [{ qualifier: 'HeaderData', position: 50 }]
+  FirstBillingDate;
+
+  @EndUserText.label: 'Ultima fattura'
+  @UI.lineItem: [{ position: 60, importance: #MEDIUM }]
+  @UI.fieldGroup: [{ qualifier: 'HeaderData', position: 60 }]
+  LastBillingDate;
+
+  @EndUserText.label: 'Totale anticipato'
+  @UI.lineItem: [{ position: 70, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'Totals', position: 20 }]
+  TotalAdvance;
+
+  @EndUserText.label: 'Totale recuperato'
+  @UI.lineItem: [{ position: 80, importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'Totals', position: 30 }]
+  TotalRecovered;
+
+  @EndUserText.label: 'Totale provvigione'
+  @UI.lineItem: [{ position: 90, importance: #MEDIUM }]
+  @UI.fieldGroup: [{ qualifier: 'Totals', position: 40 }]
+  TotalCommission;
+}

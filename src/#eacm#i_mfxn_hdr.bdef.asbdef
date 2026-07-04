@@ -1,0 +1,139 @@
+managed implementation in class /EACM/BP_I_MFXN unique;
+strict ( 2 );
+with draft;
+
+define behavior for /EACM/I_MFXN_HDR alias Recovery
+persistent table /eacm/mfxn_h
+draft table /eacm/mfxn_h_d
+lock master total etag LocalLastChangedAt
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  field ( readonly, numbering : managed ) Uuid;
+  field ( mandatory : create ) Bukrs, Zamcf, Zcdaz;
+  field ( readonly ) AgentName, LocalCurrency, EuroMode, Status, MessageText,
+                     CreatedBy, CreatedAt, ChangedBy, ChangedAt, LocalLastChangedAt;
+
+  action Extract result [1] $self;
+  static action StartExtraction parameter /EACM/A_MFXN_START;
+  action SaveToSap result [1] $self;
+
+  association _VkorgRanges { create; with draft; }
+  association _VtwegRanges { create; with draft; }
+  association _Advances { create; with draft; }
+  association _Summaries { create; with draft; }
+  association _Postings { create; with draft; }
+
+  side effects {
+    action Extract affects field ( AgentName, LocalCurrency, EuroMode, Status, MessageText ),
+                           entity _Summaries;
+
+    action SaveToSap affects field ( Status, MessageText ),
+                            entity _Postings;
+  }
+}
+
+define behavior for /EACM/I_MFXN_VKORG alias VkorgRange
+persistent table /eacm/mfxn_rngvk
+draft table /eacm/mfxn_rng_d
+lock dependent by _Recovery
+authorization dependent by _Recovery
+{
+  update;
+  delete;
+
+  field ( readonly ) Uuid;
+  field ( readonly, numbering : managed ) RangeUuid;
+  field ( mandatory : create ) SelSign, SelOption, Low;
+
+  association _Recovery { with draft; }
+}
+
+define behavior for /EACM/I_MFXN_VTWEG alias VtwegRange
+persistent table /eacm/mfxn_rngvt
+draft table /eacm/mfxn_rnt_d
+lock dependent by _Recovery
+authorization dependent by _Recovery
+{
+  update;
+  delete;
+
+  field ( readonly ) Uuid;
+  field ( readonly, numbering : managed ) RangeUuid;
+  field ( mandatory : create ) SelSign, SelOption, Low;
+
+  association _Recovery { with draft; }
+}
+
+define behavior for /EACM/I_MFXN_ADV alias Advance
+persistent table /eacm/mfxn_adv
+draft table /eacm/mfxn_adv_d
+lock dependent by _Recovery
+authorization dependent by _Recovery
+{
+  update;
+  delete;
+
+  field ( readonly ) Uuid;
+  field ( readonly : update ) LineUuid;
+  field ( readonly ) Vkorg, Vtweg, Zclpr, Vbeln, Posnr,
+                     Zcdaz, Zidag, Zidrg, Bukrs, Gjahr, Belnr, Kunrg,
+                     Fkdat, Zamco, Zamcos, SourceWaerk, Mwskz,
+                     SourceZiman, SourceZirec, Ziman, ZimanLc;
+
+  action Attribute parameter /EACM/A_MFXN_ASSIGN result [1] $self;
+  action Deattribute parameter /EACM/A_MFXN_ASSIGN result [1] $self;
+
+  association _Recovery { with draft; }
+
+  side effects {
+    action Attribute affects field ( Rec, Zirec, MaxRec );
+
+    action Deattribute affects field ( Rec, Zirec, MaxRec );
+  }
+}
+
+define behavior for /EACM/I_MFXN_SUM alias Summary
+persistent table /eacm/mfxn_sum
+draft table /eacm/mfxn_sum_d
+lock dependent by _Recovery
+authorization dependent by _Recovery
+{
+  update;
+  delete;
+
+  field ( readonly ) Uuid;
+  field ( readonly : update ) LineUuid;
+  field ( readonly ) Vkorg, Vtweg, Zclpr, Mwskz,
+                     Ziprv, ZiprvLc;
+
+  association _Recovery { with draft; }
+}
+
+define behavior for /EACM/I_MFXN_POST alias Posting
+persistent table /eacm/mfxn_post
+draft table /eacm/mfxn_pos_d
+lock dependent by _Recovery
+authorization dependent by _Recovery
+{
+  delete;
+
+  field ( readonly ) Uuid;
+  field ( readonly : update ) PostUuid;
+  field ( readonly ) AdvanceUuid, SummaryUuid, PostType,
+                     Vkorg, Vtweg, Zclpr, Zcdaz, Zwaer, Zamco, Zprec,
+                     Zirec, Bukrs, Gjahr, Ziman, Belnr, Ztpan, Zamca,
+                     Zesfa, Znrfa, Mwskz, Fkdat, CreatedBy, CreatedAt;
+
+  association _Recovery { with draft; }
+}

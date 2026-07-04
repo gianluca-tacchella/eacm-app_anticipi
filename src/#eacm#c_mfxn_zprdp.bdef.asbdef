@@ -1,0 +1,9 @@
+projection;
+strict ( 2 );
+
+define behavior for /EACM/C_MFXN_ZPRDP alias RecoveryLine
+{
+  use action Recover;
+  use action Attribute;
+  use action SaveToSap;
+}

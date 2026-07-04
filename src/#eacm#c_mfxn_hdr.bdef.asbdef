@@ -1,0 +1,129 @@
+//projection;
+//strict ( 2 );
+//use draft;
+//use side effects;
+//
+//define behavior for /EACM/C_MFXN_HDR alias Recovery
+//{
+//  use create;
+//  use update;
+//  use delete;
+//
+//  use action Edit;
+//  use action Activate;
+//  use action Discard;
+//  use action Resume;
+//  use action Prepare;
+//
+//  use action Extract;
+//  use action StartExtraction;
+//  use action SaveToSap;
+//
+//  use association _VkorgRanges { create; with draft; }
+//  use association _VtwegRanges { create; with draft; }
+//  use association _Advances { with draft; }
+//  use association _Summaries { with draft; }
+//  use association _Postings { with draft; }
+//}
+//
+//define behavior for /EACM/C_MFXN_VKORG alias VkorgRange
+//{
+//  use update;
+//  use delete;
+//
+//  use association _Recovery { with draft; }
+//}
+//
+//define behavior for /EACM/C_MFXN_VTWEG alias VtwegRange
+//{
+//  use update;
+//  use delete;
+//
+//  use association _Recovery { with draft; }
+//}
+//
+//define behavior for /EACM/C_MFXN_ADV alias Advance
+//{
+//  use update;
+//
+//  use action Attribute;
+//  use action Deattribute;
+//
+//  use association _Recovery { with draft; }
+//}
+//
+//define behavior for /EACM/C_MFXN_SUM alias Summary
+//{
+////  use update;
+//
+//  use association _Recovery { with draft; }
+//}
+//
+//define behavior for /EACM/C_MFXN_POST alias Posting
+//{
+//  use association _Recovery { with draft; }
+//}
+
+projection;
+strict ( 2 );
+use draft;
+use side effects;
+
+define behavior for /EACM/C_MFXN_HDR alias Recovery
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  use action Extract;
+  use action StartExtraction;
+  use action SaveToSap;
+
+  use association _VkorgRanges { create; with draft; }
+  use association _VtwegRanges { create; with draft; }
+  use association _Advances { with draft; }
+  use association _Summaries { with draft; }
+  use association _Postings { with draft; }
+}
+
+define behavior for /EACM/C_MFXN_VKORG alias VkorgRange
+{
+  use update;
+  use delete;
+
+  use association _Recovery { with draft; }
+}
+
+define behavior for /EACM/C_MFXN_VTWEG alias VtwegRange
+{
+  use update;
+  use delete;
+
+  use association _Recovery { with draft; }
+}
+
+define behavior for /EACM/C_MFXN_ADV alias Advance
+{
+  use update;
+
+  use action Attribute;
+  use action Deattribute;
+
+  use association _Recovery { with draft; }
+}
+
+define behavior for /EACM/C_MFXN_SUM alias Summary
+{
+  use association _Recovery { with draft; }
+}
+
+define behavior for /EACM/C_MFXN_POST alias Posting
+{
+  use association _Recovery { with draft; }
+}

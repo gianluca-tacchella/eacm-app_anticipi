@@ -1,0 +1,12 @@
+@EndUserText.label: 'MFXN recupero anticipi'
+define service /EACM/UI_MFXN {
+  expose /EACM/C_MFXN_HDR      as Recoveries;
+  expose /EACM/C_MFXN_RECOVERY as DirectRecoveries;
+  expose /EACM/C_MFXN_ZPRDP    as ZprdpWorklist;
+  expose /EACM/C_MFXN_DSUM     as DirectSummaries;
+  expose /EACM/C_MFXN_VKORG    as VkorgRanges;
+  expose /EACM/C_MFXN_VTWEG    as VtwegRanges;
+  expose /EACM/C_MFXN_ADV      as Advances;
+  expose /EACM/C_MFXN_SUM      as Summaries;
+  expose /EACM/C_MFXN_POST     as Postings;
+}

@@ -1,0 +1,43 @@
+@Metadata.layer: #CORE
+annotate view /eacm/c_mfxn_dsum with
+{
+  @EndUserText.label: 'Societa'
+  @UI.lineItem: [{ position: 10, importance: #MEDIUM }]
+  bukrs;
+
+  @EndUserText.label: 'Agente'
+  @UI.lineItem: [{ position: 20, importance: #MEDIUM }]
+  zcdaz;
+
+  @EndUserText.label: 'Competenza'
+  @UI.lineItem: [{ position: 30, importance: #MEDIUM }]
+  zamco;
+
+  @EndUserText.label: 'Org. vendite'
+  @UI.lineItem: [{ position: 40, importance: #HIGH }]
+  vkorg;
+
+  @EndUserText.label: 'Canale'
+  @UI.lineItem: [{ position: 50, importance: #HIGH }]
+  vtweg;
+
+  @EndUserText.label: 'Classe provvigionale'
+  @UI.lineItem: [{ position: 60, importance: #HIGH }]
+  zclpr;
+
+  @EndUserText.label: 'Righe'
+  @UI.lineItem: [{ position: 70, importance: #MEDIUM }]
+  linecount;
+
+  @EndUserText.label: 'Totale anticipato'
+  @UI.lineItem: [{ position: 80, importance: #HIGH }]
+  totaladvance;
+
+  @EndUserText.label: 'Totale recuperato'
+  @UI.lineItem: [{ position: 90, importance: #HIGH }]
+  totalrecovered;
+
+  @EndUserText.label: 'Totale provvigione'
+  @UI.lineItem: [{ position: 100, importance: #MEDIUM }]
+  totalcommission;
+}

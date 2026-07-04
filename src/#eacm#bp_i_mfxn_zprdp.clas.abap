@@ -1,0 +1,5 @@
+CLASS /eacm/bp_i_mfxn_zprdp DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF /eacm/i_mfxn_zprdp.
+ENDCLASS.
+
+CLASS /eacm/bp_i_mfxn_zprdp IMPLEMENTATION.
+ENDCLASS.
